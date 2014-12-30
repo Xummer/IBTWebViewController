@@ -10,10 +10,10 @@
 		C127E0D01A5151D7003A374B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C127E0CF1A5151D7003A374B /* main.m */; };
 		C127E0D31A5151D7003A374B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C127E0D21A5151D7003A374B /* AppDelegate.m */; };
 		C127E0D61A5151D7003A374B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C127E0D51A5151D7003A374B /* ViewController.m */; };
-		C127E0D91A5151D7003A374B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C127E0D71A5151D7003A374B /* Main.storyboard */; };
 		C127E0DB1A5151D7003A374B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C127E0DA1A5151D7003A374B /* Images.xcassets */; };
 		C127E0DE1A5151D7003A374B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C127E0DC1A5151D7003A374B /* LaunchScreen.xib */; };
 		C127E0EA1A5151D8003A374B /* IBTWebViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C127E0E91A5151D8003A374B /* IBTWebViewControllerTests.m */; };
+		C127E0F61A515263003A374B /* IBTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C127E0F51A515263003A374B /* IBTWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C124FB391A524B5700153264 /* IBTWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBTWebViewDelegate.h; sourceTree = "<group>"; };
 		C127E0CA1A5151D7003A374B /* IBTWebViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IBTWebViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C127E0CE1A5151D7003A374B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C127E0CF1A5151D7003A374B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -34,12 +35,13 @@
 		C127E0D21A5151D7003A374B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C127E0D41A5151D7003A374B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C127E0D51A5151D7003A374B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C127E0D81A5151D7003A374B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C127E0DA1A5151D7003A374B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C127E0DD1A5151D7003A374B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C127E0E31A5151D8003A374B /* IBTWebViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IBTWebViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C127E0E81A5151D8003A374B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C127E0E91A5151D8003A374B /* IBTWebViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IBTWebViewControllerTests.m; sourceTree = "<group>"; };
+		C127E0F41A515263003A374B /* IBTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBTWebViewController.h; sourceTree = "<group>"; };
+		C127E0F51A515263003A374B /* IBTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBTWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +87,7 @@
 				C127E0D21A5151D7003A374B /* AppDelegate.m */,
 				C127E0D41A5151D7003A374B /* ViewController.h */,
 				C127E0D51A5151D7003A374B /* ViewController.m */,
-				C127E0D71A5151D7003A374B /* Main.storyboard */,
+				C127E0F31A515240003A374B /* IBTWebViewController */,
 				C127E0DA1A5151D7003A374B /* Images.xcassets */,
 				C127E0DC1A5151D7003A374B /* LaunchScreen.xib */,
 				C127E0CD1A5151D7003A374B /* Supporting Files */,
@@ -117,6 +119,16 @@
 				C127E0E81A5151D8003A374B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C127E0F31A515240003A374B /* IBTWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C127E0F41A515263003A374B /* IBTWebViewController.h */,
+				C127E0F51A515263003A374B /* IBTWebViewController.m */,
+				C124FB391A524B5700153264 /* IBTWebViewDelegate.h */,
+			);
+			path = IBTWebViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +211,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C127E0D91A5151D7003A374B /* Main.storyboard in Resources */,
 				C127E0DE1A5151D7003A374B /* LaunchScreen.xib in Resources */,
 				C127E0DB1A5151D7003A374B /* Images.xcassets in Resources */,
 			);
@@ -220,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C127E0D61A5151D7003A374B /* ViewController.m in Sources */,
+				C127E0F61A515263003A374B /* IBTWebViewController.m in Sources */,
 				C127E0D31A5151D7003A374B /* AppDelegate.m in Sources */,
 				C127E0D01A5151D7003A374B /* main.m in Sources */,
 			);
@@ -244,14 +256,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C127E0D71A5151D7003A374B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C127E0D81A5151D7003A374B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C127E0DC1A5151D7003A374B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -345,9 +349,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = IBTWebViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "19f8b9fc-357b-4f17-b847-e63601bd370d";
 			};
 			name = Debug;
 		};
@@ -355,9 +361,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = IBTWebViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "19f8b9fc-357b-4f17-b847-e63601bd370d";
 			};
 			name = Release;
 		};
@@ -414,6 +422,7 @@
 				C127E0EF1A5151D8003A374B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C127E0F01A5151D8003A374B /* Build configuration list for PBXNativeTarget "IBTWebViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +431,7 @@
 				C127E0F21A5151D8003A374B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
