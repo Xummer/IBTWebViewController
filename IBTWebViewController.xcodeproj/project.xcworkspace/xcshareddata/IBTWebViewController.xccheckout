@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8D166317-3644-495F-ABAB-4B0C2CCC8B1C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>IBTWebViewController</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3829B6C61A07E1842C36189437ED74DBF34F0FED</key>
+		<string>github.com:Xummer/IBTWebViewController.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IBTWebViewController.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3829B6C61A07E1842C36189437ED74DBF34F0FED</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:Xummer/IBTWebViewController.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3829B6C61A07E1842C36189437ED74DBF34F0FED</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3829B6C61A07E1842C36189437ED74DBF34F0FED</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IBTWebViewController</string>
+		</dict>
+	</array>
+</dict>
+</plist>

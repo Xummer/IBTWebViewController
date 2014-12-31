@@ -14,6 +14,7 @@
 		C127E0DE1A5151D7003A374B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C127E0DC1A5151D7003A374B /* LaunchScreen.xib */; };
 		C127E0EA1A5151D8003A374B /* IBTWebViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C127E0E91A5151D8003A374B /* IBTWebViewControllerTests.m */; };
 		C127E0F61A515263003A374B /* IBTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C127E0F51A515263003A374B /* IBTWebViewController.m */; };
+		C14E639A1A53CDBF00F2CE1D /* IBTWebProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C14E63991A53CDBF00F2CE1D /* IBTWebProgressBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		C127E0E91A5151D8003A374B /* IBTWebViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IBTWebViewControllerTests.m; sourceTree = "<group>"; };
 		C127E0F41A515263003A374B /* IBTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBTWebViewController.h; sourceTree = "<group>"; };
 		C127E0F51A515263003A374B /* IBTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBTWebViewController.m; sourceTree = "<group>"; };
+		C14E63981A53CDBF00F2CE1D /* IBTWebProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBTWebProgressBar.h; sourceTree = "<group>"; };
+		C14E63991A53CDBF00F2CE1D /* IBTWebProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBTWebProgressBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				C127E0F41A515263003A374B /* IBTWebViewController.h */,
 				C127E0F51A515263003A374B /* IBTWebViewController.m */,
 				C124FB391A524B5700153264 /* IBTWebViewDelegate.h */,
+				C14E63981A53CDBF00F2CE1D /* IBTWebProgressBar.h */,
+				C14E63991A53CDBF00F2CE1D /* IBTWebProgressBar.m */,
 			);
 			path = IBTWebViewController;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C127E0D61A5151D7003A374B /* ViewController.m in Sources */,
+				C14E639A1A53CDBF00F2CE1D /* IBTWebProgressBar.m in Sources */,
 				C127E0F61A515263003A374B /* IBTWebViewController.m in Sources */,
 				C127E0D31A5151D7003A374B /* AppDelegate.m in Sources */,
 				C127E0D01A5151D7003A374B /* main.m in Sources */,
