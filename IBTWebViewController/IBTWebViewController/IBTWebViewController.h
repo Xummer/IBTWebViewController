@@ -13,6 +13,8 @@
 
 @property (weak, nonatomic) id<IBTWebViewDelegate> m_delegate;
 
-- (id)initWithURL:(NSString *)urlStr presentModal:(BOOL)modal extraInfo:(NSDictionary *)info;
+- (id)initWithURL:(id)url presentModal:(BOOL)modal extraInfo:(NSDictionary *)info;
+
+- (void)setAutoSetTitle:(BOOL)bAutoSet;
 
 @end

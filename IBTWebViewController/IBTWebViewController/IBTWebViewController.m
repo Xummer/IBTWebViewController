@@ -31,6 +31,8 @@
     
     // URL
     NSURL *m_currentUrl;
+    
+    BOOL m_bAutoSetTitle;
 }
 @property (strong, nonatomic) UIWebView *m_webView;
 @property (strong, nonatomic) NSString *m_initUrl;
@@ -46,15 +48,20 @@
 @implementation IBTWebViewController
 
 #pragma mark - Life Cycle
-- (id)initWithURL:(NSString *)urlStr presentModal:(BOOL)modal extraInfo:(NSDictionary *)info; {
+- (id)initWithURL:(id)url presentModal:(BOOL)modal extraInfo:(NSDictionary *)info {
     self = [super init];
     if (!self) {
         return nil;
     }
     
-    self.m_initUrl = urlStr;
+    if ([url isKindOfClass:[NSString class]]) {
+        self.m_initUrl = url;
+    }
+    else if ([url isKindOfClass:[NSURL class]]) {
+        self.m_initUrl = [NSString stringWithFormat:@"%@", url];
+    }
     
-    self.m_extraInfo = [NSMutableDictionary dictionaryWithDictionary:info];
+    m_bAutoSetTitle = YES;
     
     return self;
 }
@@ -64,7 +71,7 @@
     
     self.view.backgroundColor = IBT_BGCOLOR;
     
-    if (([[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending)) {
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
@@ -92,6 +99,11 @@
     
     m_loadFailView = nil;
     m_currentUrl = nil;
+}
+
+#pragma mark - Setter
+- (void)setAutoSetTitle:(BOOL)bAutoSet {
+    m_bAutoSetTitle = bAutoSet;
 }
 
 #pragma mark - Private Method
@@ -219,7 +231,9 @@
 }
 
 - (void)startProgressAnimation {
-    [m_progressView start];
+    if (m_progressView.bIsFinish) {
+        [m_progressView start];
+    }
 }
 
 - (void)resetProgress {
@@ -301,6 +315,10 @@
 }
 
 #pragma mark - WebView Action
+- (BOOL)isTopLevelNavigation:(NSURLRequest *)req {
+    return [req.URL isEqual:req.mainDocumentURL];
+}
+
 - (void)goToURL:(NSURL *)url {
     if (url) {
         [self.m_webView loadRequest:[NSURLRequest requestWithURL:url]];
@@ -333,8 +351,8 @@
 shouldStartLoadWithRequest:(NSURLRequest *)request
  navigationType:(UIWebViewNavigationType)navigationType
 {
-    m_currentUrl = request.URL;
-    m_addressLabel.text = [self getAddressBarHostText:request.URL];
+    m_currentUrl = request.mainDocumentURL;
+    m_addressLabel.text = [self getAddressBarHostText:m_currentUrl];
     
     return YES;
 }
@@ -343,7 +361,10 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     if ([_m_delegate respondsToSelector:@selector(onWebViewDidStartLoad:)]) {
         [_m_delegate onWebViewDidStartLoad:webView];
     }
-    [self startProgressAnimation];
+    
+    if ([self isTopLevelNavigation:webView.request]) {
+        [self startProgressAnimation];
+    }
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
@@ -352,15 +373,22 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
         [_m_delegate onWebViewDidFinishLoad:webView];
     }
     
-    [self setProgress100Percent];
-    
-    if ([_m_webView canGoBack]) {
-        [self updateToolbarHistoryButtons];
+    if ([self isTopLevelNavigation:webView.request]) {
+        m_currentUrl = webView.request.mainDocumentURL;
+        m_addressLabel.text = [self getAddressBarHostText:m_currentUrl];
+        
+        [self setProgress100Percent];
+        
+        if ([_m_webView canGoBack]) {
+            [self updateToolbarHistoryButtons];
+        }
+        
+        // get title
+        if (m_bAutoSetTitle) {
+            NSString *nsTitle = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+            [self updateDisplayTitle:nsTitle];
+        }
     }
-    
-    // get title
-    NSString *nsTitle = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    [self updateDisplayTitle:nsTitle];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
@@ -370,9 +398,13 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
         [_m_delegate webViewFailToLoad:error];
     }
     
-    [self hideLoadFailView];
-    [self resetProgress];
-    [self showLoadFailView:[error localizedDescription]];
+    if ([error code] != NSURLErrorCancelled &&
+        [self isTopLevelNavigation:webView.request])
+    {
+        [self hideLoadFailView];
+        [self resetProgress];
+        [self showLoadFailView:[error localizedDescription]];
+    }
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
