@@ -311,12 +311,25 @@
 }
 
 - (void)onMoreAction:(__unused id)sender {
+    NSString *string = [NSString stringWithFormat:@"%@", m_currentUrl];
+    NSURL *URL = m_currentUrl;
     
+    UIActivityViewController *activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:@[ string, URL ]
+                                      applicationActivities:nil];
+    [self presentViewController:activityViewController
+                       animated:YES
+                     completion:^{}];
 }
 
 #pragma mark - WebView Action
 - (BOOL)isTopLevelNavigation:(NSURLRequest *)req {
-    return [req.URL isEqual:req.mainDocumentURL];
+    if (req.mainDocumentURL) {
+        return [req.URL isEqual:req.mainDocumentURL];
+    }
+    else {
+        return YES;
+    }
 }
 
 - (void)goToURL:(NSURL *)url {

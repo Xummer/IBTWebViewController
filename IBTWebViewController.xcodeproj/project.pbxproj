@@ -359,7 +359,7 @@
 				INFOPLIST_FILE = IBTWebViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19f8b9fc-357b-4f17-b847-e63601bd370d";
+				PROVISIONING_PROFILE = "6C433C2D-C147-40FD-B0BC-8B865CBC8444";
 			};
 			name = Debug;
 		};
@@ -371,7 +371,7 @@
 				INFOPLIST_FILE = IBTWebViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19f8b9fc-357b-4f17-b847-e63601bd370d";
+				PROVISIONING_PROFILE = "6C433C2D-C147-40FD-B0BC-8B865CBC8444";
 			};
 			name = Release;
 		};
